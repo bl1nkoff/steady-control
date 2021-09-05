@@ -20,8 +20,8 @@ export default function SQL() {
 
   useEffect( () => {
     Promise.all([
-      fetch( "http://localhost:3000/api/get-tree" ),
-      fetch( "http://localhost:3000/api/get-cities" )
+      fetch( process.env.API_URL + "get-tree" ),
+      fetch( process.env.API_URL + "get-cities" )
     ]).then( results => {
       if ( !results.every( el => el.status !== 200) ) setTree( 'Ошибка: \n' + JSON.stringify( results, null, 2 ) )
       
