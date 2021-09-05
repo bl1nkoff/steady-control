@@ -1,0 +1,19 @@
+.tree-page {
+  margin: auto;
+  > .node {
+    > .node__name {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: .5em;
+    }
+    padding-left: unset;
+    margin-bottom: .5em;
+    padding-bottom: 1em;
+    border-bottom: 2px dashed #ddd;
+  }
+}
+
+.node {
+  padding-left: 2em;
+  cursor: default;
+}

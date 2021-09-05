@@ -1,0 +1,23 @@
+.code {
+  font-family: source-code-pro, Ubuntu Mono, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  border-radius: 2px;
+
+  &__p{
+    line-height: 1.25em;
+    padding: 0 1em;
+  }
+  &__p-gray{
+    background: #eee;
+  }
+}
+
+.sql-page {
+  display: flex;
+  flex-direction: column;
+
+  &__copy {
+    margin-bottom: .5em;
+    align-self: end;
+  }
+}

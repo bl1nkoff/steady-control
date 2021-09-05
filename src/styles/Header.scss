@@ -1,0 +1,14 @@
+.header {
+  padding: 1em 0;
+  background: var(--main-color);
+  color: var(--color-above-main-color);
+  font-weight: 500;
+
+  &__logo {
+    text-decoration: unset;
+  }
+
+  &__logo:visited {
+    color: var(--color-above-main-color);
+  }
+}
