@@ -1,34 +1,21 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+# Задание для собеседования на JS FullStack в SteadyControl
+## Приложение достуно по ссылке: 
+Задание: реализовать отображение иерархии данных из JSON файла
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Город
+  Район
+  Улица
+    Житель 1
+    Житель 2
+  Улица 2
+    Житель 3
+    Житель 4
+```
+## Что получилось сделать
+* Fullstack веб приложение на React + Next.js + MySQL
+* Построить иерархию
+* Получилось сделать систему не привязанную к конкретной конфигурации, её можно задать при конвертации JSON в SQL запросы, а дальнейшая работа вообще от неё не зависит. Так же можно дописать совсем небольшое обновление, которое позволит и пропускать ступени в уже имеющихся данных, и напрямую добавлять/удалять ступени у строк в БД.
+* Добавить отображение города из сторонней таблицы при наведении на имя человека
+## Что не удалось сделать
+* Упаковать приложение в докер контейнер. Не знал, как иначе предоставить рабочее приложение с БД, поэтому выложил на хостинг (для экспериментов и учёбы арендую небольшой сервер)
+* Как я понял, по заданию нужно было получить уже готовую иерархию сразу от БД. Не совсем получилось забрать готовое дерево от туда, а то, что хвост отображается не совсем верно, заметил уже поздновато, поэтому дописал в бэке сразу после запроса небольшую сортировку, которая это исправляет. Читал, в MySQL именно такой возможности нет, а переделывать на другую уже нет времени + на хостинге только MySQL
