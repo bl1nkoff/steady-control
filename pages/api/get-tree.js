@@ -12,16 +12,19 @@ export default function handler(req, res) {
   mysql.query(query, ( error, answer ) => {
     if ( error ) { res.status(500).json( { error } ) }
     else{
+
+      // Вот тут пришлось дорабатывать порядок строк из БД
       for ( let i = 0; i < answer.length; i++ ) {
         let node = answer[i]
         if ( node.type === "Leaf" &&
           node.parentId !== answer[i - 1].id &&
           node.parentId !== answer[i - 1].parentId ) {
             answer.splice( i, 1 )
-            let parentID;
+            let parentID
             for ( let j = 0; j < answer.length; j++ ) {
               if ( answer[j].id === node.parentId ) {
                 parentID = j
+                break
               }
             }
             answer.splice( parentID + 1, 0, node )

@@ -7,11 +7,9 @@ const result = [
 
 export default result 
 
-let rows = [ null ]
-
 const config = [ "city", "district", "street" ]
 
-console.log(citizens.length)
+let rows = [ null ]
 
 atAll: for ( let i = 0; i < citizens.length; i++ ) {
   let lastParent = -1;
@@ -22,17 +20,17 @@ atAll: for ( let i = 0; i < citizens.length; i++ ) {
     if ( parentIndex === -1 ) {
       parentIndex = rows.length
       writeSitizenSQLRow( parentIndex, lastParent, group.name )
-      rows.push(group.name)
+      rows.push( group.name )
     } 
     lastParent = parentIndex
   }
-  writeSitizenSQLRow( rows.length, lastParent,citizens[i].name )
-  rows.push(citizens[i].name)
+  writeSitizenSQLRow( rows.length, lastParent, citizens[i].name )
+  rows.push( citizens[i].name )
 }
 
-for ( let i = 0; i < cities.length; i++ ) {
-  result.push(`INSERT INTO cities ( name, data ) VALUES ( "${cities[i].name}", "${cities[i].data}" );`)
-}
+cities.forEach( city => {
+  result.push(`INSERT INTO cities ( name, data ) VALUES ( "${city.name}", "${city.data}" );`)
+})
 
 function writeSitizenSQLRow (id, parentId, name) {
   result.push(`INSERT INTO citizensTree ( id, parentId, name ) VALUES ( ${id}, ${parentId}, "${name}" );`)

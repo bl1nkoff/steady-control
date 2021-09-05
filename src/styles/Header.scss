@@ -8,6 +8,7 @@
     text-decoration: unset;
   }
 
+  &__logo:active,
   &__logo:visited {
     color: var(--color-above-main-color);
   }
